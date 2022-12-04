@@ -1,0 +1,18 @@
+{
+  "name": "htmlRender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1261.0",
+    "express": "^4.18.2",
+    "formidable": "^2.0.1",
+    "pug": "^3.0.2"
+  }
+}
