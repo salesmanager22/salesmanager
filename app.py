@@ -34,7 +34,7 @@ def download_zip(name):
     target = './data/outputs'
     stream = BytesIO()
     with ZipFile(stream, 'w') as zf:
-        for file in glob(os.path.join(target, '{}_*.xlsx'.format(name))):
+        for file in glob(os.path.join(target, '{}_*.xlsx'.format(name[:-5]))):
             zf.write(file, os.path.basename(file))
     stream.seek(0)
 
@@ -48,9 +48,32 @@ def download_zip(name):
 def home():
    return render_template('index.html')
 
+
+@app.route('/index')
+def index():
+   return render_template('index.html')
+
 @app.route('/run')
 def run():
    return render_template('run.html')
+
+
+@app.route('/status')
+def status():
+   return render_template('status.html')
+
+@app.route('/gettingstarted')
+def gettingstarted():
+   return render_template('gettingstarted.html')
+
+@app.route('/documentation')
+def documentation():
+   return render_template('documentation.html')
+
+
+@app.route('/contact')
+def contact():
+   return render_template('contact.html')
 
 
 @app.route('/faq')
@@ -64,7 +87,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/testdownload', methods=['GET', 'POST'])
+@app.route('/rearrange', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
