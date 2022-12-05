@@ -1,3 +1,4 @@
 /data/outputs/*
 /data/user_upload/*
 .vscode
+errorlog.txt
